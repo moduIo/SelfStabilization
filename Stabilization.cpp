@@ -12,10 +12,14 @@
 
    (2) If the primary value of a neighbor node is different from the primary value of the node:
 
-       (a) If the node is the local leader: node.secondary += (the max of neighbor node secondary variables + M)
-       (b) If the node is not the local leader: node.secondary += 1, but node.primary holds
+       (a) If the node is the local leader: 
+           i. update node.primary
+           ii. node.secondary += max(neighborhood secondary variables + M)
+       
+       (b) If the node is not the local leader: 
+           i. node.secondary += 1
 
-   (3) If none of the primary values are equal between the node and its neighbors, the nodes primary value will flip.
+   (3) If none of the primary values are equal between the node and its neighbors, the node.primary updates.
 
    Data structure to be first investigated is the linked list. */
 
